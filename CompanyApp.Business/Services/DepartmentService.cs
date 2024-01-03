@@ -18,7 +18,25 @@ namespace CompanyApp.Business.Services
 
         public Department Create(Department department, int capacity)
         {
-            return department;
+            var existDepartmentName = departmentRepository.Get(d => d.DepartmentName.Equals(department.Name, StringComparison.OrdinalIgnoreCase));
+            if (existDepartmentName is not null) return null;
+            department.Id = Count;
+            if (department.Capacity > 0)
+            {
+                if (departmentRepository.Create(department))
+                {
+                    Count++;
+                    return department;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
 
 

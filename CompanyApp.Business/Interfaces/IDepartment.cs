@@ -15,9 +15,5 @@ namespace CompanyApp.Business.Interfaces
 
         List<Department> SearchByCapacity(int capacity);
 
-
-
-
-
-    }
+     }
 }

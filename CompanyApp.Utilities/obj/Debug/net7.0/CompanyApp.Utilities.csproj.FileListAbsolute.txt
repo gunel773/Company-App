@@ -1,0 +1,11 @@
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\bin\Debug\net7.0\CompanyApp.Utilities.deps.json
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\bin\Debug\net7.0\CompanyApp.Utilities.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\bin\Debug\net7.0\CompanyApp.Utilities.pdb
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\CompanyApp.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\CompanyApp.Utilities.AssemblyInfoInputs.cache
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\CompanyApp.Utilities.AssemblyInfo.cs
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\CompanyApp.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\CompanyApp.Utilities.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\refint\CompanyApp.Utilities.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\CompanyApp.Utilities.pdb
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Utilities\obj\Debug\net7.0\ref\CompanyApp.Utilities.dll

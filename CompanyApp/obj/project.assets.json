@@ -38,6 +38,16 @@
         "runtime": {
           "bin/placeholder/CompanyApp.Domain.dll": {}
         }
+      },
+      "CompanyApp.Utilities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/CompanyApp.Utilities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CompanyApp.Utilities.dll": {}
+        }
       }
     }
   },
@@ -56,11 +66,17 @@
       "type": "project",
       "path": "../CompanyApp.Domain/CompanyApp.Domain.csproj",
       "msbuildProject": "../CompanyApp.Domain/CompanyApp.Domain.csproj"
+    },
+    "CompanyApp.Utilities/1.0.0": {
+      "type": "project",
+      "path": "../CompanyApp.Utilities/CompanyApp.Utilities.csproj",
+      "msbuildProject": "../CompanyApp.Utilities/CompanyApp.Utilities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "CompanyApp.Business >= 1.0.0"
+      "CompanyApp.Business >= 1.0.0",
+      "CompanyApp.Utilities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -92,6 +108,9 @@
           "projectReferences": {
             "C:\\Users\\Honor MagicBook\\Downloads\\CompanyApp\\CompanyApp.Business\\CompanyApp.Business.csproj": {
               "projectPath": "C:\\Users\\Honor MagicBook\\Downloads\\CompanyApp\\CompanyApp.Business\\CompanyApp.Business.csproj"
+            },
+            "C:\\Users\\Honor MagicBook\\Downloads\\CompanyApp\\CompanyApp.Utilities\\CompanyApp.Utilities.csproj": {
+              "projectPath": "C:\\Users\\Honor MagicBook\\Downloads\\CompanyApp\\CompanyApp.Utilities\\CompanyApp.Utilities.csproj"
             }
           }
         }

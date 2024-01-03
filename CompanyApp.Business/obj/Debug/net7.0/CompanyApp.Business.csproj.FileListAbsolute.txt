@@ -1,0 +1,17 @@
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.Business.deps.json
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.Business.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.Business.pdb
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.DataContext.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.Domain.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.DataContext.pdb
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\bin\Debug\net7.0\CompanyApp.Domain.pdb
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.csproj.AssemblyReference.cache
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.AssemblyInfoInputs.cache
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.AssemblyInfo.cs
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.csproj.CoreCompileInputs.cache
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.csproj.CopyComplete
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\refint\CompanyApp.Business.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\CompanyApp.Business.pdb
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp.Business\obj\Debug\net7.0\ref\CompanyApp.Business.dll

@@ -16,6 +16,14 @@ namespace CompanyApp.Business.Services
         }
         public Employee Create(Employee employee, string departmentName, int experienceYear, string profession)
         {
+            var existDepartment = _departmentRepository
+                .Get(d => d.DepartmentName.Equals(departmentName, StringComparison.OrdinalIgnoreCase));
+            if (existDepartment is null) return null; 
+            employee.Id = Count;
+            employee.Department = existDepartment;
+            bool result = _employeeRepository.Create(employee);
+            if (!result) return null;
+            Count++;
             return employee;
         }
 
