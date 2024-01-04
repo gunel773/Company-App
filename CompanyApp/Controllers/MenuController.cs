@@ -140,14 +140,14 @@ namespace CompanyApp.Controllers
         {
         Start: Helper.ChangeTextColor(ConsoleColor.DarkCyan, "What category will your processes be in?\n" + "Select:\n"
                                                         + " 1--EmployeeSelectionList\n " + "2--DepartmentSelectionList\n"
-                                                        + "2--Exit\n");
+                                                        + "0--Exit\n");
         Enter: string selection = Console.ReadLine();
             bool result = int.TryParse(selection, out int intselection);
             while (true)
             {
                 if (result && intselection > 0 && intselection < 3)
                 {
-                    switch (intselection)
+                       switch (intselection)
                     {
                         case (int)SelectionList.EmployeeSelectionList:
                             EmployeeSelectionListMethod();

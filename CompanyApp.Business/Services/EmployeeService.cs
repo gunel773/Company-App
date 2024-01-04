@@ -9,6 +9,7 @@ namespace CompanyApp.Business.Services
         private readonly EmployeeRepository _employeeRepository;
         private readonly DepartmentRepository _departmentRepository;
         private static int Count = 1;
+        private static int employeeCount = 0;
         public EmployeeService()
         {
             _departmentRepository = new();
@@ -18,13 +19,21 @@ namespace CompanyApp.Business.Services
         {
             var existDepartment = _departmentRepository
                 .Get(d => d.DepartmentName.Equals(departmentName, StringComparison.OrdinalIgnoreCase));
+            
             if (existDepartment is null) return null; 
             employee.Id = Count;
-            employee.Department = existDepartment;
+            existDepartment.EmployeeCount = employeeCount;
             bool result = _employeeRepository.Create(employee);
             if (!result) return null;
-            Count++;
-            return employee;
+            if (!(existDepartment.EmployeeCount < existDepartment.Capacity)) return null;
+            employee.Department = existDepartment;
+            if (!(employee.Age < 65 && employee.Age > 18)) return null;
+            if (!(employee.ExperienceYear > 1)) return null;
+            Count++; 
+            employeeCount++;
+            
+             return employee;
+
         }
         public Employee Delete(int id)
         {

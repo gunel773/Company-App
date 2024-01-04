@@ -13,5 +13,7 @@ namespace CompanyApp.Domain.Models
         public string Adress { get; set; }
         public string Profession { get; set; }
         public Department Department { get; set; }
+        public int Salary { get; set; }
+        public int Pension { get; set; }
     }
 }

@@ -29,30 +29,38 @@ namespace CompanyApp.Controllers
             var adress= Console.ReadLine();
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter the employee's profession:");
             var profession = Console.ReadLine();
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter salary the employee has:");
+            var salary = Console.ReadLine();
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter how many years of work experience the employee has:");
             var experienceYear = Console.ReadLine() ;
 
-            bool resultage = int.TryParse(age, out int employeeAge);
+            bool resultAge = int.TryParse(age, out int employeeAge);
+            bool resultSalary = int.TryParse(salary, out int employeeSalary);
             bool resultExperienceyear = int.TryParse(experienceYear, out int employeeExperienceyear);
-            if (resultage && resultExperienceyear)
+            if (resultAge && resultExperienceyear && resultSalary)
             {
 
                 Employee newEmployee = new();
+                newEmployee.Salary = employeeSalary;
                 newEmployee.Name = name;
                 newEmployee.Surname = surName;
                 newEmployee.Age = employeeAge;
                 newEmployee.Profession = profession;
                 newEmployee.ExperienceYear = employeeExperienceyear;
                 newEmployee.Adress = adress;
-                
-                if (_employeeService.Create(newEmployee, departmentName, employeeExperienceyear, profession) is null)
+               
+
+                if (_employeeService.Create(newEmployee, departmentName, employeeExperienceyear, profession) is not null)
                 {
-                    Helper.ChangeTextColor(ConsoleColor.Red, "Something went wrong..");
+                    Helper.ChangeTextColor(ConsoleColor.Green, "Employee has been successfully created");
                 }
                 else
-                {
-                    Helper.ChangeTextColor(ConsoleColor.Green, "Telebe has been successfully created");
-                }
+                    {
+
+                        Helper.ChangeTextColor(ConsoleColor.Red, "Something went wrong..");
+                    }
+
+
             }
             else
             {

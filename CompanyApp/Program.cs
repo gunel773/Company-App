@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using CompanyApp.Controllers;
 using CompanyApp.Utilities;
 

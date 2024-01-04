@@ -9,6 +9,8 @@ namespace CompanyApp.Domain.Models
         public string Name { get; set; }
 
         public string DepartmentName { get; set; }
+
+        public int EmployeeCount { get; set; }
        
  
 
