@@ -43,23 +43,31 @@ namespace CompanyApp.Controllers
             }
             else
             {
-                Helper.ChangeTextColor(ConsoleColor.Red, "You enter correct capacity ");
+                Helper.ChangeTextColor(ConsoleColor.Red, "Check capacity you entered");
             }
 
         }
         public void DeleteDepartment()
         {
             Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the İD of the department you want to delete");
-            int deartmentId= int.Parse(Console.ReadLine());
-            var result = departmentService.Delete(deartmentId);
-
-            if (result is null)
+            var id= Console.ReadLine();
+            bool resultId=int.TryParse(id, out int departmentId);
+            if (resultId)
             {
-                Helper.ChangeTextColor(ConsoleColor.Red, "Something went wrong..");
+                var result = departmentService.Delete(departmentId);
+
+                if (result is null)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, "Something went wrong..");
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, "Department has been successfully deleted");
+                }
             }
             else
             {
-                Helper.ChangeTextColor(ConsoleColor.Green, "Department has been successfully deleted");
+                    Helper.ChangeTextColor(ConsoleColor.Red, " Check id you entered");
             }
 
 
@@ -68,44 +76,61 @@ namespace CompanyApp.Controllers
         public void UpdateDepartment()
         {
             Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the department İD you want to change");
-            int id = int.Parse(Console.ReadLine());
-
+            var id =Console.ReadLine();
+            
             Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter department capacity");
-            int capacity = int.Parse(Console.ReadLine());
+            var capacity =Console.ReadLine();
 
             Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter department name");
             string departmentName = Console.ReadLine();
 
+            bool resultId = int.TryParse(id, out int departmentId);
+            bool resultcapacity = int.TryParse(capacity, out int departmentCapacity);
+
             Department newDepartment = new();
             newDepartment.DepartmentName = departmentName;
-            newDepartment.Capacity = capacity;
-            var createdDepartment = departmentService.Update(id, newDepartment, capacity);
-
-
-            if (createdDepartment != null)
+            newDepartment.Capacity = departmentCapacity;
+            if (resultId && resultcapacity)
             {
-                Helper.ChangeTextColor(ConsoleColor.Green, $"{newDepartment.Name} department uptaded");
+                var createdDepartment = departmentService.Update(departmentId, newDepartment, departmentCapacity);
+                if (createdDepartment != null)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"{newDepartment.Name} department uptaded");
 
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, "Something went wrong");
+                }
             }
             else
             {
-                Helper.ChangeTextColor(ConsoleColor.Red, "Something went wrong");
+                Helper.ChangeTextColor(ConsoleColor.Red, " Check id or capacity you entered");
             }
         }
 
         public void GetDepartmentById()
         {
             Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Enter the ID of the Department you are looking for");
-            int id = int.Parse(Console.ReadLine());
-            var result = departmentService.Get(id);
-            if (result is not null)
+            var id = Console.ReadLine();
+            bool resultId=int.TryParse(id, out int departmentId);
+            if (resultId)
             {
-                Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:Id:{id}  Department Name:{result.DepartmentName}  Capacity:{result.Capacity}");
+                var result = departmentService.Get(id);
+                if (result is not null)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:Id:{id}" +
+                        $"  Department Name:{result.DepartmentName}  Capacity:{result.Capacity}");
 
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $" Department with {id} Id not found");
+                }
             }
             else
             {
-                Helper.ChangeTextColor(ConsoleColor.Red, $" Department with {id} Id not found");
+                Helper.ChangeTextColor(ConsoleColor.Red, " Check id you entered");
             }
         }
 
@@ -133,7 +158,8 @@ namespace CompanyApp.Controllers
             var result=departmentService.Get(departmentName);
             if(result is not null)
             {
-                Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:Id:{result.Id}  Department Name:{departmentName}  Capacity:{result.Capacity}");
+                Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:Id:{result.Id} " +
+                    $" Department Name:{departmentName}  Capacity:{result.Capacity}");
 
             }
             else
@@ -143,30 +169,40 @@ namespace CompanyApp.Controllers
            
         }
 
-        public void SearchDepartmentByCapacity()
+        public void SearchDepartmentsByCapacity()
         {
             Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the department capacity:");
-            int capacity=int.Parse(Console.ReadLine());
+            var capacity=Console.ReadLine();
+            bool resultCapacity=int.TryParse(capacity, out var departmentCapacity);
             Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Department list : ");
-            var departments = departmentService.SearchByCapacity(capacity);
-            if (departments.Count > 0)
+            if (resultCapacity)
             {
-                if (departments is not null)
+
+                var departments = departmentService.SearchByCapacity(departmentCapacity);
+                if (departments.Count > 0)
                 {
-                    foreach (var department in departments)
+                    if (departments is not null)
                     {
-                        Helper.ChangeTextColor(ConsoleColor.Green, $"Id:{department.Id}Name:{department.DepartmentName}");
+                        foreach (var department in departments)
+                        {
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"Id:{department.Id}  " +
+                                $"Name:{department.DepartmentName} Capacity:{departmentCapacity}");
+                        }
                     }
+                    else
+                    {
+                        Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                    }
+
                 }
                 else
                 {
                     Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
                 }
-
             }
             else
             {
-                Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                Helper.ChangeTextColor(ConsoleColor.Red, " Check capacity you entered");
             }
 
             

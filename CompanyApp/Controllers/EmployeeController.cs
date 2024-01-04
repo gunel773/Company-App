@@ -216,7 +216,7 @@ namespace CompanyApp.Controllers
 
         }
 
-        public void SearchEmployeeWithNameOrSurname()
+        public void SearchEmployeesWithNameOrSurname()
         {
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Employee name or surname");
             string nameOrSurname=Console.ReadLine();
