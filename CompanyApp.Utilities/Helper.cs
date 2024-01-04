@@ -15,7 +15,7 @@ namespace CompanyApp.Utilities
         public enum SelectionList
         {
            
-            EmployeeSelectionList,
+            EmployeeSelectionList=1,
             DepartmentSelectionList
 
         }

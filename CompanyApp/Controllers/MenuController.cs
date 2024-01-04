@@ -5,15 +5,17 @@ namespace CompanyApp.Controllers
 {
     public class MenuController
     {
-        private readonly MenuController menu= new ();
+       
         private readonly EmployeeController employeeController=new();
         private readonly DepartmentController departmentController=new();
         public void EmployeeSelectionListMethod()
         {
-        StartEMenu: Helper.ChangeTextColor(ConsoleColor.DarkCyan, "Select the process you want to execute:");
-            Helper.ChangeTextColor(ConsoleColor.DarkCyan, "CreateEmployee\n" + "DeleteEmployee\n" + "UpdateEmployee\n" + "GetEmployeeById\n" +
-                "GetAllEmployeesByDepartmentId\n" + "GetAllEmployessByAge\n" + "SearchEmployeesWithNameOrSurname\n" +
-             "GetAllEmployees\n" + "GetAllEmployeesByProfession\n" + "GetAllEmployeesByAdress\n" + "GetAllEmployeesByExperienceYear\n" + "Exit\n");
+        StartEMenu: Helper.ChangeTextColor(ConsoleColor.DarkBlue, "A selection list of prosessing methods on employees\n"+
+            "Select the process you want to execute:\n");
+           Helper.ChangeTextColor(ConsoleColor.DarkCyan, "1-CreateEmployee\n" + "2-DeleteEmployee\n" + "3-UpdateEmployee\n" + "4-GetEmployeeById\n" +
+                "5-GetAllEmployeesByDepartmentId\n" + "6-GetAllEmployessByAge\n" + "7-SearchEmployeesWithNameOrSurname\n" +
+             "8-GetAllEmployees\n" + "9-GetAllEmployeesByProfession\n" + "10-GetAllEmployeesByAdress\n" + 
+             "11-GetAllEmployeesByExperienceYear\n" + "0-Exit\n");
         EnterEMenu: string select = Console.ReadLine();
             bool resultSelect = int.TryParse(select, out int intSelect);
             while (true)
@@ -79,9 +81,10 @@ namespace CompanyApp.Controllers
 
         public void DepartmentSelectionListMethod()
         {
-        StartDMenu: Helper.ChangeTextColor(ConsoleColor.DarkCyan, "Select the process you want to execute:");
-            Helper.ChangeTextColor(ConsoleColor.DarkCyan, "CreateDepartment\n" + "DeleteDepartment\n" + "UpdateDepartment\n" + "GetDepartmentById\n" +
-                "GetAllDepartment\n" + "GetDepartmentByName\n" + "SearchDepartmentsByCapacity\n" + "Exit\n");
+        StartDMenu: Helper.ChangeTextColor(ConsoleColor.DarkCyan, "A selection list of prosessing methods on departments" +
+            "Select the process you want to execute:");
+            Helper.ChangeTextColor(ConsoleColor.DarkCyan, "1-CreateDepartment\n" + "2-DeleteDepartment\n" + "3-UpdateDepartment\n" +
+                "4-GetDepartmentById\n" +"5-GetAllDepartment\n" + "6-GetDepartmentByName\n" + "7-SearchDepartmentsByCapacity\n" + "0-Exit\n");
         EnterDMenu: string select = Console.ReadLine();
             bool resultSelect = int.TryParse(select, out int intSelect);
             while (true)
@@ -136,7 +139,8 @@ namespace CompanyApp.Controllers
         public void Menu()
         {
         Start: Helper.ChangeTextColor(ConsoleColor.DarkCyan, "What category will your processes be in?\n" + "Select:\n"
-                                                        + " 1--EmployeeSelectionList\n " + "2--DepartmentSelectionList\n");
+                                                        + " 1--EmployeeSelectionList\n " + "2--DepartmentSelectionList\n"
+                                                        + "2--Exit\n");
         Enter: string selection = Console.ReadLine();
             bool result = int.TryParse(selection, out int intselection);
             while (true)
@@ -146,10 +150,10 @@ namespace CompanyApp.Controllers
                     switch (intselection)
                     {
                         case (int)SelectionList.EmployeeSelectionList:
-                            menu.EmployeeSelectionListMethod();
+                            EmployeeSelectionListMethod();
                             break;
                         case (int)SelectionList.DepartmentSelectionList:
-                            menu.DepartmentSelectionListMethod();
+                            DepartmentSelectionListMethod();
                             break;
 
                         default:
@@ -160,6 +164,7 @@ namespace CompanyApp.Controllers
                 }
                 else if (intselection == 0)
                 {
+
                     Helper.ChangeTextColor(ConsoleColor.Cyan, "Logged out...");
                     break;
                 }
