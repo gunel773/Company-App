@@ -7,17 +7,17 @@ namespace CompanyApp.Business.Interfaces
     {
         Employee Create(Employee employee, string departmentName, int experienceYear, string profession);
         Employee Update(int id, Employee employee, string departmentName);
-        Employee GetEmployeeById(int id);
-        List<Employee> GetAllDepartmentId(int id);
         Employee Delete(int id);
-        List<Employee> GetAllAge(int age);
-        List<Employee> GetAllDepartmentName(Department department);
-        List<Employee> SearchEmployeeWithName(string name);
+        Employee GetById(int id);
+        List<Employee> GetAllByDepartmentId(int id);
+        List<Employee> SearchWithNameOrSurname(string name);
         List<Employee> GetAll();
-        List<Employee> GetAllEmployeesByProfession(string profession);
-        List<Employee> GetAllEmployeesByAdress(string adress);
-        List<Employee> GetAllEmployeesByExperienceYear(int experienceYear);
+        List<Employee> GetAllByProfession(string profession);
+        List<Employee> GetAllsByAdress(string adress);
+        List<Employee> GetAllByExperienceYear(int experienceYear);
         int GetAllEmployeesCount();
+
+        List<Employee> GetAllByAge(int age);
 
 
     }

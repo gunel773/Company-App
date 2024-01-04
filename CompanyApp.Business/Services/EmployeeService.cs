@@ -2,7 +2,6 @@
 using CompanyApp.DataContext.Repositories;
 using CompanyApp.Domain.Models;
 
-
 namespace CompanyApp.Business.Services
 {
     public class EmployeeService:IEmployee
@@ -27,10 +26,6 @@ namespace CompanyApp.Business.Services
             Count++;
             return employee;
         }
-
-
-
-
         public Employee Delete(int id)
         {
             var existEmployee=_employeeRepository.Get(e=>e.Id == id);
@@ -39,74 +34,6 @@ namespace CompanyApp.Business.Services
             return null;
 
         }
-
-
-
-        public List<Employee> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllAge(int age)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllDepartmentId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllDepartmentName(Department department)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllEmployeesByAdress(string adress)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllEmployeesByAge(int age)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllEmployeesByDepartmentId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllEmployeesByExperienceYear(int experienceYear)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllEmployeesByProfession(string profession)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int GetAllEmployeesCount()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> GetAllEmployessByDepartmentName(Department department)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Employee GetEmployeeById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Employee> SearchEmployeeWithName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
         public Employee Update(int id, Employee employee, string departmentName)
         {
             var existEmployee = _employeeRepository.Get(e => e.Id == id);
@@ -130,5 +57,74 @@ namespace CompanyApp.Business.Services
 
         }
 
+        public Employee GetById(int id)
+        {
+            var existEmployee=_employeeRepository
+                .Get(e=>e.Id == id);
+            if (existEmployee is null) return null;
+            return existEmployee;
+        }
+
+        public List<Employee> GetAllByDepartmentId(int id) 
+        {
+            var existEmployees=_employeeRepository
+                .GetAll(e=> e.Department.Id == id);    
+            if (existEmployees is null) return null;
+            return existEmployees;
+           
+
+        }
+
+        public List<Employee> GetAllByAge(int age)
+        {
+            var existEmployees = _employeeRepository
+                .GetAll(e => e.Age == age);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public List<Employee> SearchWithNameOrSurname(string name)
+        {
+            var existEmployees = _employeeRepository
+               .GetAll(e => e.Name == name || e.Surname==name);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public List<Employee> GetAll()
+        {
+            return _employeeRepository.GetAll();
+        }
+
+        public List<Employee> GetAllByProfession(string profession)
+        {
+            var existEmployees = _employeeRepository
+                .GetAll(e => e.Profession == profession);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public List<Employee> GetAllsByAdress(string adress)
+        {
+            var existEmployees = _employeeRepository
+                .GetAll(e => e.Adress == adress);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public List<Employee> GetAllByExperienceYear(int experienceYear)
+        {
+            var existEmployees = _employeeRepository
+                .GetAll(e => e.ExperienceYear == experienceYear);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public int GetAllEmployeesCount()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }
