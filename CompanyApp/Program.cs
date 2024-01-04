@@ -6,5 +6,11 @@ Helper.ChangeTextColor(ConsoleColor.DarkCyan, "CompanyApp");
  DepartmentController departmentController = new ();
 EmployeeController employeeController = new  ();  
 departmentController.CreateDepartment();
-employeeController.CreateEmployee();
+//employeeController.CreateEmployee();
 
+//departmentController.DeleteDepartment();
+//employeeController.DeleteEmployee();
+//departmentController.UpdateDepartment();
+//employeeController.UpdateEmployee();
+//departmentController.GetDepartmentByName();
+departmentController.GetDepartmentById();

@@ -1,10 +1,11 @@
-﻿using CompanyApp.DataContext.Repositories;
+﻿using CompanyApp.Business.Interfaces;
+using CompanyApp.DataContext.Repositories;
 using CompanyApp.Domain.Models;
 
 
 namespace CompanyApp.Business.Services
 {
-    public class EmployeeService
+    public class EmployeeService:IEmployee
     {
         private readonly EmployeeRepository _employeeRepository;
         private readonly DepartmentRepository _departmentRepository;
@@ -27,10 +28,19 @@ namespace CompanyApp.Business.Services
             return employee;
         }
 
+
+
+
         public Employee Delete(int id)
         {
-            throw new NotImplementedException();
+            var existEmployee=_employeeRepository.Get(e=>e.Id == id);
+            if (existEmployee is null) return null;
+            if (_employeeRepository.Delete(existEmployee)) return existEmployee;
+            return null;
+
         }
+
+
 
         public List<Employee> GetAll()
         {
@@ -99,7 +109,25 @@ namespace CompanyApp.Business.Services
 
         public Employee Update(int id, Employee employee, string departmentName)
         {
-            throw new NotImplementedException();
+            var existEmployee = _employeeRepository.Get(e => e.Id == id);
+            if (existEmployee is null) return null;
+            var existDepartment = _departmentRepository.Get(d => d.DepartmentName == departmentName);
+            if (existDepartment is null) return null;
+
+            if (string.IsNullOrEmpty(employee.Name)) existEmployee.Name = employee.Name;
+            if (string.IsNullOrEmpty(employee.Surname)) existEmployee.Surname = employee.Surname;
+            existEmployee.Department = existDepartment;
+
+            if (_employeeRepository.Update(existEmployee))
+            {
+                return existEmployee;
+            }
+            else
+            {
+                return null;
+            }
+
+
         }
 
     }

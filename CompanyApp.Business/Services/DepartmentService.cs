@@ -1,15 +1,17 @@
 ﻿
+using CompanyApp.Business.Interfaces;
 using CompanyApp.DataContext.Repositories;
 using CompanyApp.Domain.Models;
 
 namespace CompanyApp.Business.Services
 {
-    public class DepartmentService
+    public class DepartmentService:IDepartment
     {
 
         private readonly DepartmentRepository departmentRepository;
         private readonly EmployeeRepository employeeRepository;
         private static int Count = 1;
+
         public DepartmentService()
         {
             departmentRepository = new();
@@ -42,24 +44,38 @@ namespace CompanyApp.Business.Services
 
         public Department Delete(int id)
         {
-            throw new NotImplementedException();
-        }
+            var existDepartment = departmentRepository.Get(d => d.Id == id);
+            if (existDepartment is null) return null;
+            if (departmentRepository.Delete(existDepartment))
+            {
+                var employeeList = employeeRepository.GetAll(e => e.Department.Id == id);
+                if (employeeList.Count > 0)
+                {
+                    foreach (var employee in employeeList)
+                    {
+                        employeeRepository.Delete(employee);
+                    }
+                }
+                return existDepartment;
+
+            }
+            return null;
+         }
 
 
 
-        public Department Get(string departmentName)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public Department Get(int id)
         {
-            throw new NotImplementedException();
+            var existDepartment=departmentRepository.Get(d=>d.Id == id);
+            return existDepartment;
+
         }
 
         public List<Department> GetAll()
         {
-            throw new NotImplementedException();
+            return departmentRepository.GetAll();
         }
 
         public List<Department> SearchByCapacity(int capacity)
@@ -69,12 +85,27 @@ namespace CompanyApp.Business.Services
 
         public Department Update(int id, Department department, int capacity)
         {
-            throw new NotImplementedException();
+            var existDepartment = departmentRepository.Get(d => d.Id == id);
+            if (existDepartment is null) return null;
+
+            var existDepartmentName = departmentRepository
+                .Get(d => d.DepartmentName.Equals(department.DepartmentName, StringComparison.OrdinalIgnoreCase) && d.Id != existDepartment.Id);
+            if (existDepartmentName != null) return null;
+            existDepartment.DepartmentName = department.DepartmentName;
+            existDepartment.Capacity = department.Capacity;
+
+            if (departmentRepository.Update(department))
+            {
+                return existDepartment;
+            }
+            return null;
+
         }
 
-        internal object Get(Func<object, bool> value)
+        public Department Get(string departmentName)
         {
-            throw new NotImplementedException();
+            var existDepartment = departmentRepository.Get(d => d.DepartmentName == departmentName);
+            return existDepartment;
         }
     }
 }
