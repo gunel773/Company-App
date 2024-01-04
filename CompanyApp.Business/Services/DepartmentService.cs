@@ -41,7 +41,6 @@ namespace CompanyApp.Business.Services
             }
         }
 
-
         public Department Delete(int id)
         {
             var existDepartment = departmentRepository.Get(d => d.Id == id);
@@ -62,14 +61,11 @@ namespace CompanyApp.Business.Services
             return null;
          }
 
-
-
-        
-
         public Department Get(int id)
         {
             var existDepartment=departmentRepository.Get(d=>d.Id == id);
-            return existDepartment;
+            if (existDepartment is null) return null;
+             return existDepartment;
 
         }
 
@@ -80,7 +76,13 @@ namespace CompanyApp.Business.Services
 
         public List<Department> SearchByCapacity(int capacity)
         {
-            throw new NotImplementedException();
+           
+            var existDepartments= departmentRepository
+               .GetAll(d => d.Capacity == capacity);
+            if (existDepartments is null) return null;
+            return existDepartments;
+
+
         }
 
         public Department Update(int id, Department department, int capacity)
@@ -105,6 +107,7 @@ namespace CompanyApp.Business.Services
         public Department Get(string departmentName)
         {
             var existDepartment = departmentRepository.Get(d => d.DepartmentName == departmentName);
+            if (existDepartment is null) return null;
             return existDepartment;
         }
     }

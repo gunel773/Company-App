@@ -42,14 +42,14 @@ namespace CompanyApp.DataContext.Repositories
 
         public List<Department> GetAll(Predicate<Department> filter = null)
         {
-            return DbContext.Departments.FindAll(filter);
+            return filter == null ? DbContext.Departments : DbContext.Departments.FindAll(filter);
         }
 
 
 
         public List<Department> Search(Predicate<Department> filter = null)
         {
-            return DbContext.Departments.FindAll(filter);
+            return filter==null ? DbContext.Departments :DbContext.Departments.FindAll(filter);
         }
 
         public bool Update(Department entity)

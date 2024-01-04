@@ -4,13 +4,17 @@ using CompanyApp.Utilities;
 
 Helper.ChangeTextColor(ConsoleColor.DarkCyan, "CompanyApp");
  DepartmentController departmentController = new ();
-EmployeeController employeeController = new  ();  
-departmentController.CreateDepartment();
-//employeeController.CreateEmployee();
-
+EmployeeController employeeController = new  ();
+//departmentController.CreateDepartment();
 //departmentController.DeleteDepartment();
-//employeeController.DeleteEmployee();
 //departmentController.UpdateDepartment();
-//employeeController.UpdateEmployee();
 //departmentController.GetDepartmentByName();
-departmentController.GetDepartmentById();
+//departmentController.GetDepartmentById();
+//departmentController.GetAllDepartment();
+//departmentController.SearchDepartmentByCapacity();
+
+
+//employeeController.CreateEmployee();
+//employeeController.DeleteEmployee();
+//employeeController.UpdateEmployee();
+

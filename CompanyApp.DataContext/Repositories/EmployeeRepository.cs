@@ -39,7 +39,7 @@ namespace CompanyApp.DataContext.Repositories
 
         public List<Employee> GetAll(Predicate<Employee> filter = null)
         {
-            return DbContext.Employees.FindAll(filter);
+            return filter == null ? DbContext.Employees : DbContext.Employees.FindAll(filter);
         }
 
         public List<Employee> Search(Predicate<Employee> filter = null)

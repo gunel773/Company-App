@@ -47,9 +47,6 @@ namespace CompanyApp.Controllers
             }
 
         }
-
-
-
         public void DeleteDepartment()
         {
             Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the İD of the department you want to delete");
@@ -98,7 +95,7 @@ namespace CompanyApp.Controllers
 
         public void GetDepartmentById()
         {
-            Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the ID of the Department you are looking for");
+            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Enter the ID of the Department you are looking for");
             int id = int.Parse(Console.ReadLine());
             var result = departmentService.Get(id);
             if (result is not null)
@@ -114,24 +111,24 @@ namespace CompanyApp.Controllers
 
         public void GetAllDepartment()
         {
-            //Helper.ChangeTextColor(ConsoleColor.Yellow, "Student list : ");
-            //var students = _studentService.GetAll();
-            //if (students.Count > 0)
-            //{
-            //    foreach (var student in students)
-            //    {
-            //        Helper.ChangeTextColor(ConsoleColor.Green, $"Id:{student.Id} Name: {student.Name}  Group:{student.Group.Name}");
-            //    }
-            //}
-            //else
-            //{
-            //    Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
-            //}
+            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Department list : ");
+            var departments = departmentService.GetAll();
+            if (departments.Count > 0)
+            {
+                foreach (var department in departments)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"Id:{department.Id} - Name: {department.DepartmentName} Capacity:{department.Capacity}");
+                }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+            }
         }
 
         public void GetDepartmentByName()
         {
-            Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the name of the Department you are looking for");
+            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Enter the name of the Department you are looking for");
             string departmentName= Console.ReadLine();
             var result=departmentService.Get(departmentName);
             if(result is not null)
@@ -144,6 +141,36 @@ namespace CompanyApp.Controllers
                 Helper.ChangeTextColor(ConsoleColor.Red, $"{departmentName} Department not found");
             }
            
+        }
+
+        public void SearchDepartmentByCapacity()
+        {
+            Helper.ChangeTextColor(ConsoleColor.DarkYellow, "Enter the department capacity:");
+            int capacity=int.Parse(Console.ReadLine());
+            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Department list : ");
+            var departments = departmentService.SearchByCapacity(capacity);
+            if (departments.Count > 0)
+            {
+                if (departments is not null)
+                {
+                    foreach (var department in departments)
+                    {
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"Id:{department.Id}Name:{department.DepartmentName}");
+                    }
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                }
+
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+            }
+
+            
+
         }
 
 
