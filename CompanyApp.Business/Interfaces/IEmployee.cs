@@ -18,7 +18,6 @@ namespace CompanyApp.Business.Interfaces
         List<Employee> GetAllEmployeesCount();
         List<Employee> GetAllByAge(int age);
         List<Employee> GetAllBySalary(int salary);
-
         List<Employee> GetAllByPension(int pension);
         List<Employee> GetAllPensionByExperienceYear(int experienceYear);
         Employee GetPensionById(int id);

@@ -35,7 +35,8 @@ namespace CompanyApp.Utilities
             GetCompanyEmployeesCount,
             GetAllEmployeesByPension,
             GetAllEmployeesPensionByExperienceYear,
-            GetEmployeePensionById
+            GetEmployeePensionById,
+            GetAllEnployeesBySalary
 
         }
         public enum DepartmentSelectionList  //A selection list of operating methods on departments

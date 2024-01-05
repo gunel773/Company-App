@@ -156,8 +156,9 @@ namespace CompanyApp.Controllers
                 if ( result is not null)
                 {
                     Helper.ChangeTextColor(ConsoleColor
-                    .Green, $"The Employee you are looking for:{employeeİd}--{result.Name} {result.Surname} " +
-                    $" Age:{result.Age} Adress:{result.Adress} Profession:{result.Profession}  Experience year:{result.ExperienceYear}");
+                    .Green, $"The Employee you are looking for:{employeeİd}--{result.Name} {result.Surname}--" +
+                    $" Age:{result.Age}" + $" Adress:{result.Adress}" + $" Profession:{result.Profession}" +
+                    $" Experience year:{result.ExperienceYear}" + $" Salary:{result.Salary}");
 
                 }
                 else
@@ -187,8 +188,9 @@ namespace CompanyApp.Controllers
                     {
                         foreach (var employee in employees)
                         {
-                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                                $"Age:{employee.Age} Adress:{employee.Adress} Profession:{employee.Profession}  Experience year:{employee.ExperienceYear}");
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
                         }
                     }
                     else
@@ -222,8 +224,9 @@ namespace CompanyApp.Controllers
                 {
                     foreach (var employee in employees)
                     {
-                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                            $"Age: {employeeAge} Adress:{employee.Adress} Profession:{employee.Profession}  Experience year:{employee.ExperienceYear}");
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
                     }
                 }
                 else
@@ -247,8 +250,9 @@ namespace CompanyApp.Controllers
             {
                 foreach (var employee in employees)
                 {
-                    Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                            $"Age: {employee.Age} Adress:{employee.Adress} Profession:{employee.Profession}  Experience year:{employee.ExperienceYear}");
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
                 }
             }
             else
@@ -267,9 +271,9 @@ namespace CompanyApp.Controllers
                 
                     foreach (var employee in employess)
                     {
-                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                                $"Age: {employee.Age} Adress:{employee.Adress} Profession:{employee.Profession}" +
-                                $"  Experience year:{employee.ExperienceYear} Salary:{employee.Salary} Pension:{employee.Pension} manat");
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}" + $" Pension:{employee.Pension} manat");
                     }
                 
             }
@@ -290,8 +294,9 @@ namespace CompanyApp.Controllers
                 {
                     foreach (var employee in employees)
                     {
-                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                                $"Age: {employee.Age} Adress:{employee.Adress}  Profession:{profession}  Experience year:{employee.ExperienceYear}");
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
                     }
                 }
                 else
@@ -317,7 +322,9 @@ namespace CompanyApp.Controllers
                     Helper.ChangeTextColor(ConsoleColor.DarkBlue, $"List of employees living in {adress} ");
                     foreach (var employee in employees)
                     {
-                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}");
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $"Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
                     }
                 }
                 else
@@ -344,7 +351,9 @@ namespace CompanyApp.Controllers
                     {
                         foreach (var employee in employees)
                         {
-                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " );
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
                         }
                     }
                     else
@@ -396,7 +405,9 @@ namespace CompanyApp.Controllers
                     {
                         foreach (var employee in employees)
                         {
-                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname} ");
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $"Age:{employee.Age}" + $"Adress:{employee.Adress}" + $"Profession:{employee.Profession}" +
+                                $"Experience year:{employee.ExperienceYear}" + $"Salary:{employee.Salary}"+ $"Pension:{employee.Pension}");
                         }
                     }
                     else
@@ -429,7 +440,8 @@ namespace CompanyApp.Controllers
                     {
                         foreach (var employee in employees)
                         {
-                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname} Pension:{employee.Pension} manat ");
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}" +
+                                $" ExperienceYear:{employee.ExperienceYear} Pension:{employee.Pension} manat ");
                         }
                     }
                     else
@@ -476,7 +488,36 @@ namespace CompanyApp.Controllers
             }
 
         }
+        public void GetAllEnployeesBySalary()
+        {
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Salary:");
+            var salary = Console.ReadLine();
+            bool resultSalary = int.TryParse(salary, out int employeeSalary);
+            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Employees list : ");
+            if (resultSalary)
+            {
+                var employees = _employeeService.GetAllBySalary(employeeSalary);
 
+                if (employees is not null)
+                {
+                    foreach (var employee in employees)
+                    {
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}--" +
+                                $" Age:{employee.Age}" + $" Adress:{employee.Adress}" + $" Profession:{employee.Profession}" +
+                                $" Experience year:{employee.ExperienceYear}" + $" Salary:{employee.Salary}");
+                    }
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, "Check the salary you entered");
+            }
+
+        }
     }
  }
 

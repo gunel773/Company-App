@@ -9,13 +9,14 @@ namespace CompanyApp.Business.Interfaces
         Department Create(Department department, int capacity);
         Department Update(int id, Department department, int capacity);
 
-       Department Get(string departmentName);
+        Department Get(string departmentName);
        
         Department Delete(int id);
         Department Get(int id);
         List<Department> GetAll();
 
         List<Department> SearchByCapacity(int capacity);
+        
 
      }
 }

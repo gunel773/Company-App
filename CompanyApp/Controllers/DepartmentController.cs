@@ -116,11 +116,11 @@ namespace CompanyApp.Controllers
             bool resultId=int.TryParse(id, out int departmentId);
             if (resultId)
             {
-                var result = departmentService.Get(id);
+                var result = departmentService.Get(departmentId);
                 if (result is not null)
                 {
-                    Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:Id:{id}" +
-                        $"  Department Name:{result.DepartmentName}  Capacity:{result.Capacity}");
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:    Id:{id}:\n" +
+                        $" Department Name:{result.DepartmentName}\n"+ $" Capacity:{result.Capacity}\n");
 
                 }
                 else
@@ -158,8 +158,8 @@ namespace CompanyApp.Controllers
             var result=departmentService.Get(departmentName);
             if(result is not null)
             {
-                Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:Id:{result.Id} " +
-                    $" Department Name:{departmentName}  Capacity:{result.Capacity}");
+                Helper.ChangeTextColor(ConsoleColor.Green, $"The Department you are looking for:   Id:{result.Id}\n " +
+                    $" Department Name:{departmentName}\n" +  $"Capacity:{result.Capacity}\n");
 
             }
             else

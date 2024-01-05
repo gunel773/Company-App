@@ -81,10 +81,9 @@ namespace CompanyApp.Business.Services
 
         public List<Employee> GetAllByDepartmentId(int id) 
         {
-            var existEmployees=_employeeRepository
-                .GetAll(e=> e.Department.Id == id);    
-            if (existEmployees is null) return null;
-            return existEmployees;
+            var existEmployee=_employeeRepository.GetAll(e=>e.Department.Id==id);
+            if (existEmployee is null) return null;
+            return existEmployee;
            
 
         }
@@ -143,7 +142,10 @@ namespace CompanyApp.Business.Services
 
         public List<Employee> GetAllBySalary(int salary)
         {
-            
+            var existEmployees = _employeeRepository
+                .GetAll(e => e.Salary == salary);
+            if (existEmployees is null) return null;
+            return existEmployees;
         }
 
 
