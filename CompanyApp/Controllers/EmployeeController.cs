@@ -1,4 +1,5 @@
 ﻿
+using CompanyApp.Business.Interfaces;
 using CompanyApp.Business.Services;
 using CompanyApp.Domain.Models;
 using CompanyApp.Utilities;
@@ -48,6 +49,7 @@ namespace CompanyApp.Controllers
                 newEmployee.Profession = profession;
                 newEmployee.ExperienceYear = employeeExperienceyear;
                 newEmployee.Adress = adress;
+                
                
 
                 if (_employeeService.Create(newEmployee, departmentName, employeeExperienceyear, profession) is not null)
@@ -254,7 +256,8 @@ namespace CompanyApp.Controllers
                     foreach (var employee in employess)
                     {
                         Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                                $"Age: {employee.Age} Adress:{employee.Adress} Profession:{employee.Profession}  Experience year:{employee.ExperienceYear}");
+                                $"Age: {employee.Age} Adress:{employee.Adress} Profession:{employee.Profession}" +
+                                $"  Experience year:{employee.ExperienceYear} Salary:{employee.Salary} Pension:{employee.Pension} manat");
                     }
                 
             }
@@ -302,8 +305,7 @@ namespace CompanyApp.Controllers
                     Helper.ChangeTextColor(ConsoleColor.DarkBlue, $"List of employees living in {adress} ");
                     foreach (var employee in employees)
                     {
-                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                               $"Age: {employee.Age} Profession:{employee.Profession}  Experience year:{employee.ExperienceYear}");
+                        Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}");
                     }
                 }
                 else
@@ -330,8 +332,7 @@ namespace CompanyApp.Controllers
                     {
                         foreach (var employee in employees)
                         {
-                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " +
-                                   $"Age: {employee.Age} Adress:{employee.Adress}Profession:{employee.Profession}  Experience year:{employeeExperienceYear}");
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname}  " );
                         }
                     }
                     else
@@ -347,6 +348,119 @@ namespace CompanyApp.Controllers
             else
             {
                 Helper.ChangeTextColor(ConsoleColor.Red, "Check the experience year you entered");
+            }
+
+        }
+
+        public void GetEmployeesCount()
+        {
+           
+                
+            var employees = _employeeService.GetAllEmployeesCount();
+            if (employees.Count > 0)
+            {
+                
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"Currently, the company has {employees.Count} employees");
+             
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+            }
+        }
+
+        public void GetAllEmployeesByPension()
+        {
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Employee pension");
+            var pension = Console.ReadLine();
+            bool resultPension = int.TryParse(pension, out int employeePension);
+            if (resultPension)
+            {
+                var employees = _employeeService.GetAllByPension(employeePension);
+                if (employees.Count > 0)
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"The list of those currently collecting {pension} manat pension:");
+                    if (employees is not null)
+                    {
+                        foreach (var employee in employees)
+                        {
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname} ");
+                        }
+                    }
+                    else
+                    {
+                        Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                    }
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, "Check the pension you entered");
+            }
+        }
+
+        public void GetAllEmployeesPensionByExperienceYear()
+        {
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Employee experience year");
+            var experienceyear = Console.ReadLine();
+            bool resultExperienceyear = int.TryParse(experienceyear, out int employeeExperienceYear);
+            if (resultExperienceyear)
+            {
+                var employees = _employeeService.GetAllPensionByExperienceYear(employeeExperienceYear);
+                if (employees.Count > 0)
+                {
+                    if (employees is not null)
+                    {
+                        foreach (var employee in employees)
+                        {
+                            Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname} Pension:{employee.Pension} manat ");
+                        }
+                    }
+                    else
+                    {
+                        Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                    }
+                }
+                else
+                {
+                    Helper.ChangeTextColor(ConsoleColor.Red, $"Empty list");
+                }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, "Check the experience year you entered");
+            }
+
+
+        }
+
+        public void GetEmployeePensionById()
+        {
+
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Employee Id");
+            var id = Console.ReadLine();
+            bool resultId = int.TryParse(id, out int employeeId);
+            if (resultId)
+            {
+                var employee = _employeeService.GetPensionById(employeeId);
+                if (employee is not null)
+                    {
+                           
+                    Helper.ChangeTextColor(ConsoleColor.Green, $"{employee.Id}--{employee.Name} {employee.Surname} Pension:{employee.Pension} manat ");
+                        
+                    }
+                    else
+                    {
+                        Helper.ChangeTextColor(ConsoleColor.Red, $"Something went wrong..");
+                    }
+            }
+            else
+            {
+                Helper.ChangeTextColor(ConsoleColor.Red, "Check the ID you entered");
             }
 
         }

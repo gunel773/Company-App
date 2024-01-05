@@ -15,9 +15,16 @@ namespace CompanyApp.Business.Interfaces
         List<Employee> GetAllByProfession(string profession);
         List<Employee> GetAllsByAdress(string adress);
         List<Employee> GetAllByExperienceYear(int experienceYear);
-        int GetAllEmployeesCount();
-
+        List<Employee> GetAllEmployeesCount();
         List<Employee> GetAllByAge(int age);
+        List<Employee> GetAllBySalary(int salary);
+
+        List<Employee> GetAllByPension(int pension);
+        List<Employee> GetAllPensionByExperienceYear(int experienceYear);
+        Employee GetPensionById(int id);
+
+
+        
 
 
     }

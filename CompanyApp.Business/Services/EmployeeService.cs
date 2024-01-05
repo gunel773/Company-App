@@ -1,6 +1,7 @@
 ﻿using CompanyApp.Business.Interfaces;
 using CompanyApp.DataContext.Repositories;
 using CompanyApp.Domain.Models;
+using System;
 
 namespace CompanyApp.Business.Services
 {
@@ -22,6 +23,7 @@ namespace CompanyApp.Business.Services
             
             if (existDepartment is null) return null; 
             employee.Id = Count;
+            employee.Pension=employee.Salary/(employee.ExperienceYear*10);
             existDepartment.EmployeeCount = employeeCount;
             bool result = _employeeRepository.Create(employee);
             if (!result) return null;
@@ -129,11 +131,41 @@ namespace CompanyApp.Business.Services
             return existEmployees;
         }
 
-        public int GetAllEmployeesCount()
+        public List<Employee> GetAllEmployeesCount()
+        {
+            var existEmployees = _employeeRepository.GetAll();
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public List<Employee> GetAllBySalary(int salary)
         {
             throw new NotImplementedException();
         }
 
-        
+
+        public List<Employee> GetAllByPension(int pension)
+        {
+            var existEmployees = _employeeRepository
+                 .GetAll(e => e.Pension == pension);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public List<Employee> GetAllPensionByExperienceYear(int experienceYear)
+        {
+            var existEmployees = _employeeRepository
+                .GetAll(e => e.ExperienceYear == experienceYear);
+            if (existEmployees is null) return null;
+            return existEmployees;
+        }
+
+        public Employee GetPensionById(int id)
+        {
+            var existEmployee=_employeeRepository
+                .Get(e=>e.Id == id);
+            if (existEmployee is null) return null;
+            return existEmployee;
+        }
     }
 }
