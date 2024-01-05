@@ -1,5 +1,4 @@
 ﻿
-
 namespace CompanyApp.Utilities
 {
     public class Helper
@@ -17,6 +16,7 @@ namespace CompanyApp.Utilities
            
             EmployeeSelectionList=1,
             DepartmentSelectionList
+           
 
         }
         public enum EmployeeSelectionList  //A selection list of operating methods on employees

@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Colorful.Console" Version="1.2.15" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CompanyApp.Business\CompanyApp.Business.csproj" />
     <ProjectReference Include="..\CompanyApp.Utilities\CompanyApp.Utilities.csproj" />
   </ItemGroup>

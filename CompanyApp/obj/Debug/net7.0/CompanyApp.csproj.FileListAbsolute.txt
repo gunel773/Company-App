@@ -22,3 +22,4 @@ C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp\obj\Debug\net7.0\refint
 C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp\obj\Debug\net7.0\CompanyApp.pdb
 C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp\obj\Debug\net7.0\CompanyApp.genruntimeconfig.cache
 C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp\obj\Debug\net7.0\ref\CompanyApp.dll
+C:\Users\Honor MagicBook\Downloads\CompanyApp\CompanyApp\bin\Debug\net7.0\Colorful.Console.dll

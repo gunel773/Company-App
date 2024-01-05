@@ -5,7 +5,7 @@ namespace CompanyApp.Business.Interfaces
 {
     public interface IEmployee
     {
-        Employee Create(Employee employee, string departmentName, int experienceYear, string profession);
+        Employee Create(Employee employee, string departmentName, int experienceYear, int age);
         Employee Update(int id, Employee employee, string departmentName);
         Employee Delete(int id);
         Employee GetById(int id);

@@ -16,7 +16,7 @@ namespace CompanyApp.Business.Services
             _departmentRepository = new();
             _employeeRepository = new();
         }
-        public Employee Create(Employee employee, string departmentName, int experienceYear, string profession)
+        public Employee Create(Employee employee, string departmentName, int experienceYear, int age)
         {
             var existDepartment = _departmentRepository
                 .Get(d => d.DepartmentName.Equals(departmentName, StringComparison.OrdinalIgnoreCase));
@@ -54,6 +54,9 @@ namespace CompanyApp.Business.Services
 
             if (string.IsNullOrEmpty(employee.Name)) existEmployee.Name = employee.Name;
             if (string.IsNullOrEmpty(employee.Surname)) existEmployee.Surname = employee.Surname;
+            if (!(existDepartment.EmployeeCount < existDepartment.Capacity)) return null;
+            if (!(employee.Age < 65 && employee.Age > 18)) return null;
+            if (!(employee.ExperienceYear > 1)) return null;
             existEmployee.Department = existDepartment;
 
             if (_employeeRepository.Update(existEmployee))
@@ -140,7 +143,7 @@ namespace CompanyApp.Business.Services
 
         public List<Employee> GetAllBySalary(int salary)
         {
-            throw new NotImplementedException();
+            
         }
 
 

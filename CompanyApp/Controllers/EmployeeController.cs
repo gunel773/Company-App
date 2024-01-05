@@ -52,7 +52,7 @@ namespace CompanyApp.Controllers
                 
                
 
-                if (_employeeService.Create(newEmployee, departmentName, employeeExperienceyear, profession) is not null)
+                if (_employeeService.Create(newEmployee, departmentName, employeeExperienceyear, employeeAge) is not null)
                 {
                     Helper.ChangeTextColor(ConsoleColor.Green, "Employee has been successfully created");
                 }
@@ -98,24 +98,36 @@ namespace CompanyApp.Controllers
         {
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter the employee İD you want to change");
             var id = Console.ReadLine();
-
-
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter the name of the employee's department");
             string departmentName = Console.ReadLine();
-
-
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter new Employee Name");
             string name = Console.ReadLine();
-
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter new Employee SurName");
             string surName = Console.ReadLine();
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter the employee's age:");
+            var age = Console.ReadLine();
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter the employee's adress:");
+            var adress = Console.ReadLine();
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter the employee's profession:");
+            var profession = Console.ReadLine();
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter salary the employee has:");
+            var salary = Console.ReadLine();
+            Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter how many years of work experience the employee has:");
+            var experienceYear = Console.ReadLine();
 
             bool resultİd = int.TryParse(id, out int employeeİd);
-            if (resultİd)
+            bool resultAge = int.TryParse(age, out int employeeAge);
+            bool resultSalary = int.TryParse(salary, out int employeeSalary);
+            bool resultExperienceyear = int.TryParse(experienceYear, out int employeeExperienceyear);
+            if (resultİd&& resultAge && resultExperienceyear && resultSalary)
             {
                 Employee newEmployee = new();
+                newEmployee.Id = employeeİd;
                 newEmployee.Name = name;
                 newEmployee.Surname = surName;
+                newEmployee.Age = employeeAge;
+                newEmployee.Salary = employeeSalary;
+                newEmployee.ExperienceYear = employeeExperienceyear;
 
 
                 if (_employeeService.Update(employeeİd, newEmployee, departmentName) is null)
