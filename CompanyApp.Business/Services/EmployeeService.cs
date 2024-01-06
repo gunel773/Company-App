@@ -27,7 +27,7 @@ namespace CompanyApp.Business.Services
             existDepartment.EmployeeCount = employeeCount;
             bool result = _employeeRepository.Create(employee);
             if (!result) return null;
-            if (!(existDepartment.EmployeeCount < existDepartment.Capacity)) return null;
+            if (!(existDepartment.EmployeeCount <= existDepartment.Capacity)) return null;
             employee.Department = existDepartment;
             if (!(employee.Age < 65 && employee.Age > 18)) return null;
             if (!(employee.ExperienceYear > 1)) return null;
@@ -54,7 +54,7 @@ namespace CompanyApp.Business.Services
 
             if (string.IsNullOrEmpty(employee.Name)) existEmployee.Name = employee.Name;
             if (string.IsNullOrEmpty(employee.Surname)) existEmployee.Surname = employee.Surname;
-            if (!(existDepartment.EmployeeCount < existDepartment.Capacity)) return null;
+            if (!(existDepartment.EmployeeCount <= existDepartment.Capacity)) return null;
             if (!(employee.Age < 65 && employee.Age > 18)) return null;
             if (!(employee.ExperienceYear > 1)) return null;
             existEmployee.Department = existDepartment;

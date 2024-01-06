@@ -236,6 +236,7 @@ namespace CompanyApp.Controllers
         {
             Console.Clear();
             Helper.ChangeTextColor(ConsoleColor.Red, "You have left the app");
+            Environment.Exit(0);
             
         }
 
