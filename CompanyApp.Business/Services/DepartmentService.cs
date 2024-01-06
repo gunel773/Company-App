@@ -84,7 +84,7 @@ namespace CompanyApp.Business.Services
             var existDepartmentName = departmentRepository
                 .Get(d => d.DepartmentName.Equals(department.DepartmentName, StringComparison.OrdinalIgnoreCase) && d.Id != existDepartment.Id);
             if (existDepartmentName != null) return null;
-            if (existDepartment.Capacity < department.Capacity) return null;
+            if (existDepartment.Capacity > department.Capacity) return null;
             existDepartment.DepartmentName = department.DepartmentName;
             existDepartment.Capacity = department.Capacity;
 

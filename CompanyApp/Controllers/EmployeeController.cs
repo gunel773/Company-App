@@ -214,12 +214,11 @@ namespace CompanyApp.Controllers
         {
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Age:");
             var age = Console.ReadLine();
-            bool resultAge=int.TryParse(age, out int employeeAge);
-            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Employees list : ");
+            bool resultAge = int.TryParse(age, out int employeeAge);
             if (resultAge)
             {
                 var employees = _employeeService.GetAllByAge(employeeAge);
-
+                Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Employees list : ");
                 if (employees is not null)
                 {
                     foreach (var employee in employees)
@@ -493,11 +492,10 @@ namespace CompanyApp.Controllers
             Helper.ChangeTextColor(ConsoleColor.DarkMagenta, "Enter Salary:");
             var salary = Console.ReadLine();
             bool resultSalary = int.TryParse(salary, out int employeeSalary);
-            Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Employees list : ");
             if (resultSalary)
             {
                 var employees = _employeeService.GetAllBySalary(employeeSalary);
-
+                Helper.ChangeTextColor(ConsoleColor.DarkBlue, "Employees list : ");
                 if (employees is not null)
                 {
                     foreach (var employee in employees)

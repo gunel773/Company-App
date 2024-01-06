@@ -142,10 +142,10 @@ namespace CompanyApp.Business.Services
 
         public List<Employee> GetAllBySalary(int salary)
         {
-            var existEmployees = _employeeRepository
+            var existEmployeesSalary = _employeeRepository
                 .GetAll(e => e.Salary == salary);
-            if (existEmployees is null) return null;
-            return existEmployees;
+            if (existEmployeesSalary is null)  return null;
+            return existEmployeesSalary;
         }
 
 
